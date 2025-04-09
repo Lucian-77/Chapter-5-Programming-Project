@@ -4,10 +4,14 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <fstream>
+#include <string>
 
 int main()
 {
-    //start here
+    std::ifstream file("LineUp.txt");
+    std::string names;
+    file >> names;
 
     return 0;
 }
