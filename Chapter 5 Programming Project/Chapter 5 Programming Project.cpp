@@ -2,16 +2,28 @@
 //
 
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 int main()
 {
-    std::ifstream file("LineUp.txt");
-    std::string names;
-    file >> names;
+    std::string fileName = "LineUp.txt";
+    std::ifstream iFile(fileName);
+    if (!iFile.is_open()) {
+        std::cout << "Error opening file; ensure the file named 'LineUp.txt' is installed on youre device";
+        return 1;
+    }
+    std::vector<std::string> names;
+    std::string name;
+    while (std::getline(iFile, name)) {
+        names.push_back(name);
+    }
+    iFile.close();
+    std::sort(names.begin(), names.end());
+    std::cout << name;
 
     return 0;
 }
