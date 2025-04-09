@@ -10,7 +10,7 @@
 
 int main()
 {
-    std::string fileName = "LineUp.txt";
+    std::string fileName = "LineUp";
     std::ifstream iFile(fileName);
     if (!iFile.is_open()) {
         std::cout << "Error opening file; ensure the file named 'LineUp.txt' is installed on youre device";
