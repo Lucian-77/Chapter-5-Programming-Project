@@ -10,20 +10,22 @@
 
 int main()
 {
-    std::string fileName = "LineUp";
-    std::ifstream iFile(fileName);
-    if (!iFile.is_open()) {
-        std::cout << "Error opening file; ensure the file named 'LineUp.txt' is installed on youre device";
+    std::cout << "Which file would you like to alphabetize? (include name & extension): ";
+    std::string fName;
+    std::cin >> fName;
+    std::ifstream file(fName);
+    if (!file.is_open()) {
+        std::cout << "Error opening file; ensure the file named 'LineUp.txt' is installed on youre device\n";
         return 1;
     }
-    std::vector<std::string> names;
-    std::string name;
-    while (std::getline(iFile, name)) {
-        names.push_back(name);
+    std::vector<std::string> namesV;
+    std::string names;
+    while (std::getline(file, names)) {
+        namesV.push_back(names);
     }
-    iFile.close();
-    std::sort(names.begin(), names.end());
-    std::cout << name;
+    file.close();
+    std::sort(namesV.begin(), namesV.end());
+    std::cout << "\nOut of all " << namesV.size() << " students, the first person in line should be " << namesV.front() << " and the last person in line should be " << namesV.back() << ".\n";
 
     return 0;
 }
